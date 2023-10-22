@@ -74,14 +74,11 @@
                 </div>
             </div>
                             
-            
             <div>
                 <label >Multi Images</label>
-                <div class="row mb-20">
-                    <div class="col-sm-12 col-md-20">
-                        <input class="form-control" id="demo" type="file" name="images[]"  data-height="200" multiple />
-                    </div>
-                </div>
+                <input class="form-control" type="file" id="upload_file" name="images[]" onchange="preview_image();" multiple/>
+                <br>
+                <div id="image_preview" style="height: 10%; width:10%; display:flex;"></div>
             </div>
             <br>
 
@@ -99,4 +96,24 @@
 @section('js')
 <script src="{{asset('admin/assets/plugins/fileuploads/js/fileupload.js')}}"></script>
 <script src="{{asset('admin/assets/plugins/fileuploads/js/file-upload.js')}}"></script>
+
+<script>
+     $(document).ready(function() 
+{ 
+ $('form').ajaxForm(function() 
+ {
+  alert("Uploaded SuccessFully");
+ }); 
+});
+
+function preview_image() 
+{
+ var total_file=document.getElementById("upload_file").files.length;
+ for(var i=0;i<total_file;i++)
+ {
+  $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'><br>");
+ }
+}
+</script>
+
 @endsection
