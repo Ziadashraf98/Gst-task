@@ -76,10 +76,13 @@
                             
             <div>
                 <label >Multi Images</label>
-                <input class="form-control" type="file" id="upload_file" name="images[]" onchange="preview_image();" multiple/>
-                <br>
-                <div id="image_preview" style="height: 10%; width:10%; display:flex;"></div>
+                <div class="custom-file">
+                    <input class="custom-file-input" type="file" id="upload_file" name="images[]" onchange="preview_image();" multiple/>
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
             </div>
+            <br>
+            <div id="image_preview" style="height: 6%; width:6%; display:flex;"></div>
             <br>
 
             <button type="submit" class="btn btn-primary">Submit</button>
