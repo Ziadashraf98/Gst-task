@@ -16,28 +16,30 @@
         <div class="card-body">
 
             @if ($errors->any())
-          <div class="alert alert-danger">
+          <div class="alert alert-outline-danger mg-b-0" role="alert">
+            <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">&times;</span></button>
             <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
             </ul>
           </div>
           @endif
         
-        @if(session()->has('success'))
+          @if(session()->has('success'))
 
-        <div class="alert alert-success">
-
-        <button type="button" class="close" data-dismiss="alert">x</button>
-
-        {{session()->get('success')}}
-
-        </div>
-        @endif
+          <div class="alert alert-outline-success" role="alert">
+              <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+              <span aria-hidden="true">&times;</span></button>
+              {{session()->get('success')}}
+          </div>
+  
+          @endif
             {{-- <div class="main-content-label mg-b-5">
                 Add Category
             </div> --}}
+            <br>
             <p class="mg-b-20">Add Category</p>
             <div class="row row-sm">
                 <div class="col-lg">

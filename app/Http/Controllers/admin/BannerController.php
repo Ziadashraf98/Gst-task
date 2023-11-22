@@ -38,9 +38,9 @@ class BannerController extends Controller
      */
     public function store(BannerRequest $request)
     {
-        Banner::create([
-            'banner'=>$request->banner->getClientOriginalName(),
-        ]);
+        $validation = $request->validated();
+        $validation['banner'] = $request->banner->getClientOriginalName();
+        Banner::create($validation);
         
         $request->banner->move(public_path('images/banners') , $request->banner->getClientOriginalName());
 

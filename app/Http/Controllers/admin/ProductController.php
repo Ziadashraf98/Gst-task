@@ -8,6 +8,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -41,14 +44,10 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $product = Product::create([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'price'=>$request->price,
-            'old_price'=>$request->old_price,
-            'category_id'=>$request->category_id,
-            'image'=>$request->image->getClientOriginalName(),
-        ]);
+        DB::beginTransaction();
+        $validation = $request->validated();
+        $validation['image'] = $request->image->getClientOriginalName();
+        $product = Product::create($validation);
         
         $request->image->move(public_path('images/products') , $request->image->getClientOriginalName());
 
@@ -63,6 +62,7 @@ class ProductController extends Controller
             ]);
         } 
 
+        DB::commit();
         return redirect()->route('products.index')->with(['success'=>"you have successfully created item"]);
     }
 
@@ -109,5 +109,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function delete_image($id)
+    {
+        $image = ProductImage::find($id);
+        $one = explode('//' , trim($image->image));
+        $two = explode('/' , trim($one[1]));
+        $path = $two[1].'/'.$two[2].'/'.$two[3];
+        unlink(public_path($path));
+        $image->delete();
+        return back()->with(['success'=>"you have successfully deleted item"]);
     }
 }

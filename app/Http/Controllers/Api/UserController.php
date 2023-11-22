@@ -15,16 +15,10 @@ class UserController extends Controller
 {
     public function register(UserRequest $request)
     {
-        $user = User::create([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'birth_date'=>$request->birth_date,
-            'phone_number'=>$request->phone_number,
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-        ]);
-        
-        return response(['success'=>true , 'data'=>$user]);
+       $validation = $request->validated();
+       $validation['password'] = bcrypt($request->password);
+       $user = User::create($validation);
+       return response(['success'=>true , 'data'=>$user]);
     }
     
     public function login(UserRequest $request)
@@ -49,16 +43,9 @@ class UserController extends Controller
     public function update(UserRequest $request)
     {
         $user = User::find(Auth::id());
-        
-        $user->update([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'birth_date'=>$request->birth_date,
-            'phone_number'=>$request->phone_number,
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-        ]);
-
+        $validation = $request->validated();
+        $validation['password'] = bcrypt($request->password);
+        $user->update($validation);
         return response(['success'=>true , 'data'=>$user]);
     }
 }

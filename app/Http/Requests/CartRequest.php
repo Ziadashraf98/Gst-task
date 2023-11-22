@@ -26,6 +26,7 @@ class CartRequest extends FormRequest
         return [
             'quantity'=>'required|numeric',
             'product_id'=>'required|exists:products,id',
+            'user_id'=>'nullable|exists:users,id',
         ];
     }
 }
