@@ -13,16 +13,15 @@
             </div>
         </div>
         <div class="card-body">
-            @if(session()->has('success'))
-
-        <div class="alert alert-success">
-
-        <button type="button" class="close" data-dismiss="alert">x</button>
-
-        {{session()->get('success')}}
-
+        
+        @if(session()->has('success'))
+        <div class="alert alert-outline-success" role="alert">
+            <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">&times;</span></button>
+            {{session()->get('success')}}
         </div>
         @endif
+
             <div class="table-responsive">
                 <table class="table table-bordered mg-b-0 text-md-nowrap">
                     <thead>
@@ -36,8 +35,8 @@
                         <tr>
                             <th scope="row">{{$banner->id}}</th>
                             <td>
-                                <img style="width: 150px; height:150px" src="{{$banner->banner}}">
-                              </td>
+                                <img alt="Responsive image" class="rounded float-sm-left wd-100p wd-sm-200" src="{{$banner->banner}}">
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

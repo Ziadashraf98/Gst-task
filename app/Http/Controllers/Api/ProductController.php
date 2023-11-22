@@ -27,12 +27,9 @@ class ProductController extends Controller
 
     public function addToCart(CartRequest $request)
     {
-        $cart = Cart::create([
-            'quantity'=>$request->quantity,
-            'product_id'=>$request->product_id,
-            'user_id'=>Auth::id(),
-        ]);
-        
-        return response(['success'=>true , 'data'=>$cart]);
+       $validation = $request->validated();
+       $validation['user_id'] = Auth::id();
+       $cart = Cart::create($validation);
+       return response(['success'=>true , 'data'=>$cart]);
     }
 }

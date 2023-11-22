@@ -24,6 +24,23 @@
 <!--  Right-sidemenu css -->
 <link href="{{asset('admin/assets/plugins/sidebar/sidebar.css')}}" rel="stylesheet">
 
+@if(App::getLocale() == 'ar')
+
+<!-- Sidemenu css -->
+<link rel="stylesheet" href="{{asset('admin/assets/css-rtl/sidemenu.css')}}">
+
+<!-- Maps css -->
+<link href="{{asset('admin/assets/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
+
+<!-- style css -->
+<link href="{{asset('admin/assets/css-rtl/style.css')}}" rel="stylesheet">
+<link href="{{asset('admin/assets/css-rtl/style-dark.css')}}" rel="stylesheet">
+
+<!---Skinmodes css-->
+<link href="{{asset('admin/assets/css-rtl/skin-modes.css')}}" rel="stylesheet" />
+
+@else
+
 <!-- Sidemenu css -->
 <link rel="stylesheet" href="{{asset('admin/assets/css/sidemenu.css')}}">
 
@@ -36,4 +53,7 @@
 
 <!---Skinmodes css-->
 <link href="{{asset('admin/assets/css/skin-modes.css')}}" rel="stylesheet" />
+
+@endif
+
 @yield('css')

@@ -202,7 +202,7 @@
 									<div class="list-group list-lg-group list-group-flush">
 										<div class="list-group-item list-group-item-action" href="#">
 											<div class="media mt-0">
-												<img class="avatar-lg rounded-circle mr-3 my-auto" src="admin/assets/img/faces/3.jpg" alt="Image description">
+												<img class="avatar-lg rounded-circle mr-3 my-auto" src="{{asset('admin/assets/img/faces/3.jpg')}}" alt="Image description">
 												<div class="media-body">
 													<div class="d-flex align-items-center">
 														<div class="mt-0">
@@ -218,7 +218,7 @@
 										</div>
 										<div class="list-group-item list-group-item-action" href="#">
 											<div class="media mt-0">
-												<img class="avatar-lg rounded-circle mr-3 my-auto" src="admin/assets/img/faces/11.jpg" alt="Image description">
+												<img class="avatar-lg rounded-circle mr-3 my-auto" src="{{asset('admin/assets/img/faces/11.jpg')}}" alt="Image description">
 												<div class="media-body">
 													<div class="d-flex align-items-center">
 														<div class="mt-1">
@@ -234,7 +234,7 @@
 										</div>
 										<div class="list-group-item list-group-item-action" href="#">
 											<div class="media mt-0">
-												<img class="avatar-lg rounded-circle mr-3 my-auto" src="admin/assets/img/faces/17.jpg" alt="Image description">
+												<img class="avatar-lg rounded-circle mr-3 my-auto" src="{{asset('admin/assets/img/faces/17.jpg')}}" alt="Image description">
 												<div class="media-body">
 													<div class="d-flex align-items-center">
 														<div class="mt-1">
@@ -250,7 +250,7 @@
 										</div>
 										<div class="list-group-item list-group-item-action" href="#">
 											<div class="media mt-0">
-												<img class="avatar-lg rounded-circle mr-3 my-auto" src="admin/assets/img/faces/15.jpg" alt="Image description">
+												<img class="avatar-lg rounded-circle mr-3 my-auto" src="{{asset('admin/assets/img/faces/15.jpg')}}" alt="Image description">
 												<div class="media-body">
 													<div class="d-flex align-items-center">
 														<div class="mt-1">
@@ -266,7 +266,7 @@
 										</div>
 										<div class="list-group-item list-group-item-action br-br-7 br-bl-7" href="#">
 											<div class="media mt-0">
-												<img class="avatar-lg rounded-circle mr-3 my-auto" src="admin/assets/img/faces/6.jpg" alt="Image description">
+												<img class="avatar-lg rounded-circle mr-3 my-auto" src="{{asset('admin/assets/img/faces/6.jpg')}}" alt="Image description">
 												<div class="media-body">
 													<div class="d-flex align-items-center">
 														<div class="mt-1">

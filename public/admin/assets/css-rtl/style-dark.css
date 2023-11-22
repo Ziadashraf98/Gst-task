@@ -263,7 +263,7 @@ body.dark-theme {
 
 .dark-theme .app-sidebar__user .user-pro-body img {
   border: 2px solid #0caadf;
-  background: rgba(109, 110, 243, 0.2); }
+   }
 
 .dark-theme .slide.is-expanded:before {
   background: rgba(227, 231, 237, 0.1); }

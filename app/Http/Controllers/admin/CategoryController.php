@@ -38,11 +38,9 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'image'=>$request->image->getClientOriginalName(),
-        ]);
+        $validation = $request->validated();
+        $validation['image'] = $request->image->getClientOriginalName();
+        Category::create($validation);
         
         $request->image->move(public_path('images/categories') , $request->image->getClientOriginalName());
 
